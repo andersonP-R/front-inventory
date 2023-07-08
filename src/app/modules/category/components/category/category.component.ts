@@ -103,6 +103,14 @@ export class CategoryComponent implements OnInit {
     });
   }
 
+  search(category: string) {
+    if (category.length === 0) this.getCategories();
+
+    this.categoryService.getCategoryById(category).subscribe((resp) => {
+      this.processCategoriesResponse(resp);
+    });
+  }
+
   openSnackBar(
     message: string,
     action: string
