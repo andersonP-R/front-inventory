@@ -5,9 +5,10 @@ import { MaterialModule } from './material.module';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { RouterModule } from '@angular/router';
 import { HttpClientModule } from '@angular/common/http';
+import { ConfirmComponent } from './components/confirm/confirm.component';
 
 @NgModule({
-  declarations: [SidenavComponent],
+  declarations: [SidenavComponent, ConfirmComponent],
   exports: [SidenavComponent],
   imports: [
     CommonModule,

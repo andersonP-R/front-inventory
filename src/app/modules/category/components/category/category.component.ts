@@ -8,6 +8,7 @@ import {
   MatSnackBarRef,
   SimpleSnackBar,
 } from '@angular/material/snack-bar';
+import { ConfirmComponent } from 'src/app/modules/shared/components/confirm/confirm.component';
 
 @Component({
   selector: 'app-category',
@@ -83,6 +84,21 @@ export class CategoryComponent implements OnInit {
           'Se produjo un error al actualizar categoria',
           'Error'
         );
+      }
+    });
+  }
+
+  delete(id: any) {
+    const dialogRef = this.dialog.open(ConfirmComponent, {
+      data: { id },
+    });
+
+    dialogRef.afterClosed().subscribe((result) => {
+      if (result == 1) {
+        this.openSnackBar('Categoria Eliminada', 'Exito');
+        this.getCategories();
+      } else if (result == 2) {
+        this.openSnackBar('Se produjo un error al eliminar categoria', 'Error');
       }
     });
   }
